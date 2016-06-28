@@ -5,6 +5,10 @@
  */
 package bioinformaticframeworkbs;
 
+import core.SBMLProvidersLoader;
+import core.SBMLURLProviderHttp;
+import core.interfaces.ISBMLProvider;
+
 /**
  *
  * @author lab4
@@ -16,6 +20,15 @@ public class BioInformaticFrameworkBS {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        System.out.println(SBMLURLProviderHttp.getTextRemoteURL("https://www.google.com.ec/#gws_rd=ssl"));
+        
+        
+        for (ISBMLProvider p : SBMLProvidersLoader.getInstance().getSGBMLProvider()) {
+            System.out.println("--------------------------------------------------------");
+            System.out.println("Name: "+p.getName());
+            System.out.println("Name: "+p.getSGBMLText());
+        }
     }
     
 }
